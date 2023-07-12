@@ -908,10 +908,13 @@ cfg_if! {
     } else if #[cfg(any(target_os = "openbsd", target_os = "netbsd"))] {
         mod netbsdlike;
         pub use self::netbsdlike::*;
-    } else if #[cfg(any(target_os = "freebsd", target_os = "dragonfly"))] {
+    } else if #[cfg(any(target_os = "freebsd", target_os = "dragonfly", target_os = "gnu"))] {
         mod freebsdlike;
         pub use self::freebsdlike::*;
+    } else if #[cfg(target_os = "gnu")] {
+            mod gnu;
+            pub use self::gnu::*;
     } else {
-        // Unknown target_os
+        // ...
     }
 }

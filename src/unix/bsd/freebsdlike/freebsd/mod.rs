@@ -236,15 +236,19 @@ impl ::Clone for devstat_select_mode {
 
 s! {
     pub struct aiocb {
-        pub aio_fildes: ::c_int,
-        pub aio_offset: ::off_t,
         pub aio_buf: *mut ::c_void,
         pub aio_nbytes: ::size_t,
-        __unused1: [::c_int; 2],
-        __unused2: *mut ::c_void,
+        pub aio_fildes: ::c_int,
         pub aio_lio_opcode: ::c_int,
         pub aio_reqprio: ::c_int,
         // unused 3 through 5 are the __aiocb_private structure
+        pub __next_prio: *mut ::c_void,
+        pub __abs_prio: ::c_int,
+        pub __policy: ::c_int,
+        pub __error_code: ::c_int,
+        pub __return_value: ::ssize_t,
+        pub aio_offset: ::off_t,
+        __glibc_reserved: [::c_char; 32],
         __unused3: ::c_long,
         __unused4: ::c_long,
         __unused5: *mut ::c_void,
