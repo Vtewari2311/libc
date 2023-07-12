@@ -350,6 +350,9 @@ fn test_apple(target: &str) {
             // FIXME: ABI has been changed on recent macOSes.
             "os_unfair_lock_assert_owner" | "os_unfair_lock_assert_not_owner" => true,
 
+            // FIXME: Once the SDK get updated to Ventura's level
+            "freadlink" | "mknodat" | "mkfifoat" => true,
+
             _ => false,
         }
     });
@@ -1805,17 +1808,32 @@ fn test_android(target: &str) {
             // FIXME: NDK r22 minimum required
             | "FDB_NOTIFY_BIT"
             | "FDB_NOTIFY_INACTIVE_BIT"
+            | "IFLA_ALT_IFNAME"
+            | "IFLA_PERM_ADDRESS"
+            | "IFLA_PROP_LIST"
+            | "IFLA_PROTO_DOWN_REASON"
             | "NDA_FDB_EXT_ATTRS"
             | "NDA_NH_ID"
             | "NFEA_ACTIVITY_NOTIFY"
             | "NFEA_DONT_REFRESH"
             | "NFEA_UNSPEC" => true,
 
+            // FIXME: NDK r23 minimum required
+            | "IFLA_PARENT_DEV_BUS_NAME"
+            | "IFLA_PARENT_DEV_NAME" => true,
+
             // FIXME: NDK r25 minimum required
+            | "IFLA_GRO_MAX_SIZE"
             | "NDA_FLAGS_EXT"
             | "NTF_EXT_MANAGED" => true,
 
             // FIXME: NDK above r25 required
+            | "IFLA_ALLMULTI"
+            | "IFLA_DEVLINK_PORT"
+            | "IFLA_GRO_IPV4_MAX_SIZE"
+            | "IFLA_GSO_IPV4_MAX_SIZE"
+            | "IFLA_TSO_MAX_SEGS"
+            | "IFLA_TSO_MAX_SIZE"
             | "NDA_NDM_STATE_MASK"
             | "NDA_NDM_FLAGS_MASK"
             | "NDTPA_INTERVAL_PROBE_TIME_MS"

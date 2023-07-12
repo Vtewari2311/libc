@@ -350,6 +350,11 @@ s! {
         pub args: [::__u64; 6],
     }
 
+    pub struct seccomp_metadata {
+        pub filter_off: ::__u64,
+        pub flags: ::__u64,
+    }
+
     pub struct ptrace_peeksiginfo_args {
         pub off: ::__u64,
         pub flags: ::__u32,
@@ -1522,6 +1527,7 @@ pub const PTRACE_GETSIGINFO: ::c_int = 0x4202;
 pub const PTRACE_SETSIGINFO: ::c_int = 0x4203;
 pub const PTRACE_GETREGSET: ::c_int = 0x4204;
 pub const PTRACE_SETREGSET: ::c_int = 0x4205;
+pub const PTRACE_SECCOMP_GET_METADATA: ::c_int = 0x420d;
 
 pub const PTRACE_EVENT_STOP: ::c_int = 128;
 
@@ -3000,6 +3006,19 @@ pub const IFLA_CARRIER_DOWN_COUNT: ::c_ushort = 48;
 pub const IFLA_NEW_IFINDEX: ::c_ushort = 49;
 pub const IFLA_MIN_MTU: ::c_ushort = 50;
 pub const IFLA_MAX_MTU: ::c_ushort = 51;
+pub const IFLA_PROP_LIST: ::c_ushort = 52;
+pub const IFLA_ALT_IFNAME: ::c_ushort = 53;
+pub const IFLA_PERM_ADDRESS: ::c_ushort = 54;
+pub const IFLA_PROTO_DOWN_REASON: ::c_ushort = 55;
+pub const IFLA_PARENT_DEV_NAME: ::c_ushort = 56;
+pub const IFLA_PARENT_DEV_BUS_NAME: ::c_ushort = 57;
+pub const IFLA_GRO_MAX_SIZE: ::c_ushort = 58;
+pub const IFLA_TSO_MAX_SIZE: ::c_ushort = 59;
+pub const IFLA_TSO_MAX_SEGS: ::c_ushort = 60;
+pub const IFLA_ALLMULTI: ::c_ushort = 61;
+pub const IFLA_DEVLINK_PORT: ::c_ushort = 62;
+pub const IFLA_GSO_IPV4_MAX_SIZE: ::c_ushort = 63;
+pub const IFLA_GRO_IPV4_MAX_SIZE: ::c_ushort = 64;
 
 pub const IFLA_INFO_UNSPEC: ::c_ushort = 0;
 pub const IFLA_INFO_KIND: ::c_ushort = 1;
