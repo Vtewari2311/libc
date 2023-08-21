@@ -642,7 +642,7 @@ fn test_windows(target: &str) {
 
             // Windows uppercase structs don't have `struct` in front:
             t if is_struct => {
-                if ty.clone().chars().next().unwrap().is_uppercase() {
+                if ty.chars().next().unwrap().is_uppercase() {
                     t.to_string()
                 } else if t == "stat" {
                     "struct __stat64".to_string()
@@ -3346,6 +3346,7 @@ fn test_linux(target: &str) {
         "linux/seccomp.h",
         "linux/sock_diag.h",
         "linux/sockios.h",
+        "linux/tls.h",
         "linux/uinput.h",
         "linux/vm_sockets.h",
         "linux/wait.h",
