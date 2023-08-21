@@ -266,21 +266,21 @@ extern "C" {
     pub fn readdir(dirp: *mut ::DIR) -> *mut ::dirent;
 }
 extern "C" {
-    pub fn readdir64(dirp: *mut DIR) -> *mut dirent64;
+    pub fn readdir64(dirp: *mut ::DIR) -> *mut ::dirent64;
 }
 extern "C" {
     pub fn readdir_r(
         dirp: *mut ::DIR,
-        entry: *mut dirent,
+        entry: *mut ::dirent,
         result: *mut *mut ::dirent,
     ) -> ::c_int;
 }
 
 extern "C" {
     pub fn readdir64_r(
-        dirp: *mut DIR,
-        entry: *mut dirent64,
-        result: *mut *mut dirent64,
+        dirp: *mut ::DIR,
+        entry: *mut ::dirent64,
+        result: *mut *mut ::dirent64,
     ) -> ::c_int;
 }
 
@@ -901,9 +901,9 @@ s! {
         pub st_uid: __uid_t,
         pub st_gid: __gid_t,
         pub st_size: __off64_t,
-        pub st_atim: timespec,
-        pub st_mtim: timespec,
-        pub st_ctim: timespec,
+        pub st_atim: ::timespec,
+        pub st_mtim: ::timespec,
+        pub st_ctim: ::timespec,
         pub st_blksize: __blksize_t,
         pub st_blocks: __blkcnt64_t,
         pub st_author: __uid_t,

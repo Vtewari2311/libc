@@ -7991,7 +7991,7 @@ extern "C" {
     pub fn telldir(__dirp: *mut DIR) -> ::c_long;
 }
 extern "C" {
-    pub fn dirfd(__dirp: *mut DIR) -> ::c_int;
+    pub fn dirfd(__dirp: *mut ::DIR) -> ::c_int;
 }
 extern "C" {
     pub fn scandir(
