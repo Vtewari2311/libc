@@ -25,3 +25,7 @@
 #include <netinet/tcp.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/file.h>
+#include <sys/sysmacros.h>
+#include <sys/vfs.h>
+#include <sys/mman.h>
