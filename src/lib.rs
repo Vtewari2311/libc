@@ -1,3 +1,4 @@
+#![allow(elided_lifetimes_in_paths)]
 //! libc - Raw FFI bindings to platforms' system libraries
 #![crate_name = "libc"]
 #![crate_type = "rlib"]
@@ -34,8 +35,8 @@ cfg_if! {
         use core::iter;
         #[allow(unused_imports)]
         use core::ops;
-        #[allow(unused_imports)]
-        use core::option;
+        //#[allow(unused_imports)]
+        //use core::option;
     }
 }
 
